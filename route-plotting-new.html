@@ -88,7 +88,7 @@
 
                                     <div class="form-group mb-3">
                                         <label for="">Contact Group</label>
-                                        <select class="form-control selectpicker form-select text-black" data-live-search="true" title="Select UOM" data-style="form-select btn border text-black">
+                                        <select class="form-control selectpicker form-select text-black " data-live-search="true" title="Select UOM" data-style="form-select btn border text-black">
                                             <option value="" selected>None</option>
                                             <option value="">Customers</option>   
                                             <option value="">Suppliers</option> 
@@ -868,12 +868,13 @@
                         <div class="col-12">
 
                             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                <h4 class="mb-sm-0 font-size-18">Map view</h4>
+                                <h4 class="mb-sm-0 font-size-18">Journey and Route Assignement</h4>
 
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
-                                        <li class="breadcrumb-item"><a href="index.html">Dashboards</a></li>
-                                        <li class="breadcrumb-item active">map View</li>
+                                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                        <li class="breadcrumb-item"><a href="">Route Plotting</a></li>
+                                        <li class="breadcrumb-item active">Create New Journey</li>
                                     </ol>
                                 </div>
 
@@ -901,8 +902,68 @@
                                     </div>
 
                                 </div>
+                                <div class="card-header bg-white mb-0">
+                                    <h4 class="mb-0 fe-bold text-black text-uppercase">Location Points Searching</h4>
+                                </div>
                                 <div class="card-body">
-                                    <div id="map" class="w-100 mt-1 h-100 live-map-cont main-map-container"></div>
+                                    <div class="row">
+                                        
+                                        <div class="col-8">
+                                           
+                                            <div id="map" class="w-100 mt-1 h-100 live-map-cont main-map-container"></div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="row d-flex align-content-between h-100">
+                                                <div class="col-12">
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <h4 class="mb-3 fe-bold text-black text-uppercase">Journey Particulers</h4> 
+                                                            
+                                                        </div>
+                                                        <div class="col-12 mb-3">
+                                                            <label for="A">Assigned To</label>
+                                                            <input type="text" class="form-control" placeholder="Enter ID number fo the officer">
+                                                        </div>
+        
+                                                        <div class="col-12 mb-3">
+                                                            <label for="A">Start Date & Time</label>
+                                                            <input class="form-control" type="datetime-local" value="2019-08-19T13:45:00" id="example-datetime-local-input">
+                                                        </div>
+        
+                                                        <div class="col-12 mt-3">
+                                                            <label for="A" class="fw-bold text-uppercase mb-0">Journey Check Points and Details</label>
+                                                            <p><small>22 Check points</small></p>
+                                                           <div class="table-responsive">
+                                                            <table class="table vertical-align-middle table-sm table-stripped table-striped">
+                                                                <thead>
+                                                                    <tr class="table-dark">
+                                                                        <th>Node Type</th>
+                                                                        <th>Station Address</th>
+                                                                        <th>Tasks</th>
+                                                                        <th></th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody class="selected-addresses">
+                                                                    
+                                                                   <tr class="intial-row">
+                                                                        <th colspan="4">
+                                                                            Add Check Points To Display
+                                                                        </th>
+                                                                   </tr>
+        
+        
+                                                                </tbody>
+                                                            </table>
+                                                           </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <button class="text-uppercase text-center w-100 btn btn-primary">Create Journey</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
 
                             </div>
@@ -919,11 +980,7 @@
                                     </div>
 
                                     <!-- key button -->
-                                    <div class="map-key-card card">
-                                        <div class="card-body">
-                                            <i class="mdi mdi-key-variant"></i>
-                                        </div>
-                                    </div>
+                                    
 
                                     <!-- key items -->
                                     <div class="card map-card animated slideInLeft d-none">
@@ -1567,6 +1624,147 @@
                 </div>
             </div>
 
+            <!-- providing details for the selected point -->
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="newPoint" aria-labelledby="offcanvasExampleLabel">
+                <div class="offcanvas-header">
+                    <div class="d-flex">
+
+                        <div class="flex-shrink-0 align-self-center me-3 d-none">
+                            <img src="assets/images/users/avatar-6.jpg" class="rounded-circle avatar-xs" alt="">
+                        </div>
+
+                        <div class="flex-grow-1 overflow-hidden pe-5">
+                            <div class=" mb-1 text-capitalize d-flex">
+                                <h5 class="text-truncate font-size-14 mb-0">
+                                    Add Check Point
+                                </h5>
+                                
+                            </div>
+                            <p class="text-truncate mb-0 text-uppercase">Check Point For Assignement for <strong>Kelvin Njuguna</strong></p>
+                        </div>
+
+
+                    </div>
+                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                   
+                    <div class="card shadow-none border">
+                        <div class="card-body p-3">
+                            <div class="">
+
+                                <div class="d-flex">
+                                    <div class="overflow-hidden me-auto">
+                                        <h5 class="font-size-14 text-truncate mb-1"><a href="javascript: void(0);" class="text-body">Selected Location Details</a></h5>
+                                       
+                                    </div>
+                                   
+                                </div>
+
+                               
+
+                                <div class="card-body bg-light d-flex mb-4 mt-4">
+                                    <p class=" mb-0 ">
+                                        <i class="mdi mdi-map-check text-info align-middle me-3 font-size-24 ml-5 mr-5 "></i>
+                                    </p>
+                                    <div>
+                                        <p class="text-muted mb-0 ">Location Name</p>
+                                        <p class="mb-0 ">
+                                            <strong class="fw-semibold">
+                                                <span class="location-name">-</span>
+                                            </strong>
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="card-body bg-light d-flex mb-4 mt-4">
+                                    <p class=" mb-0 ">
+                                        <i class="mdi mdi-map-marker text-danger align-middle me-3 font-size-24 ml-5 mr-5 "></i>
+                                    </p>
+                                    <div>
+                                        <p class="text-muted mb-0 ">Location Address</p>
+                                        <p class="mb-0 ">
+                                            <strong class="fw-semibold">
+                                                <span class="location-address">-</span>
+                                            </strong>
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="w-100">
+                                    <label for="">Location Type</label>
+                                    <select class="form-select point-type">
+                                        <option>Select</option>
+                                        <option value="Start date">Start Point</option>
+                                        <option value="Stop Over">Stop Over</option>
+                                        <option value="Final Destination">Final Destination</option>
+                                    </select>
+                                </div>
+
+                                <div class="w-100 mt-4">
+                                    <label for="">Tasks To Be done At this Location</label>
+                                    <div class="table-responsive table-responsive-md mb-0">
+                                        <table class="table table-editable-2 align-middle table-edits table-sm">
+                                            <thead class="table-light">
+                                                <tr class="text-uppercase table-dark">
+                                                    <th class="vertical-align-middle">#</th>
+                                                    <th class="vertical-align-middle">Task Name</th>
+                                                    
+                                                    <th class="text-right"></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr data-id="1">
+                                                    <td style="width: 80px">1.</td>
+                                                   
+                                                   
+                                                    <td class="" title="Select number of months after which the tenancy agreement should be renewed">
+                                                        <input type="number" class="form-control text-right" placeholder="Enter Task" spellcheck="false" data-ms-editor="true">
+                                                    </td>
+
+
+                                                    <td></td>
+
+                                                </tr>
+                                                <tr class="cloneCharges d-none">
+                                                    <td style="width: 80px " class="categoryIndex ">#</td>
+
+                                                    <td class="" title="Select number of months after which the tenancy agreement should be renewed">
+                                                        <input type="number" class="form-control text-right" placeholder="Enter Task" spellcheck="false" data-ms-editor="true">
+                                                    </td>
+
+
+                                                    <td class="text-right d-flex align-items-center justify-content-end">
+                                                        <a class="btn btn-light btn-rounded waves-effect btn-circle btn-transparent cancel-new-category-2 " title="Cancel "><i class="bx bx-x "></i></a>
+                                                    </td>
+                                                </tr>
+
+
+                                            </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <td colspan="7" class="bg-light add-field-2 cursor-pointer">
+                                                        <span class="d-flex align-items-center "><i class="dripicons-plus mr-5 d-flex justify-content-center align-items-center font-21 "></i><span class="pl-5 ">Add A Task</span></span>
+                                                    </td>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                </div>
+
+                              
+                               
+                            </div>
+                        </div>
+
+                        <div class="card-footer">
+                            <button class="btn btn-success w-100 text-uppercase add-checkpoint">Add Check Point</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
 
 
             <footer class="footer ">
@@ -1650,6 +1848,10 @@
     <!-- Datatable init js -->
     <script src="assets/js/pages/datatables.init.js "></script>
 
+     <!-- Table Editable plugin -->
+     <script src="assets/libs/table-edits/build/table-edits.min.js"></script>
+     <script src="assets/js/pages/table-editable.int.js"></script>
+
     <!-- Bootstrap rating js -->
     <script src="assets/libs/bootstrap-rating/bootstrap-rating.min.js "></script>
 
@@ -1668,7 +1870,7 @@
     <!-- script for the receipting -->
     <script src="assets/js/payment-method.js "></script>
     <!-- the map -->
-    <script src="assets/js/map.js "></script>
+    <script src="assets/js/map-route.js "></script>
 
     <!-- axios to be used for geocoding -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js " integrity="sha512-quHCp3WbBNkwLfYUMd+KwBAgpVukJu5MncuQaWXgCrfgcxCJAq/fo+oqrRKOj+UKEmyMCG3tb8RB63W+EmrOBg==" crossorigin=" anonymous "></script>
@@ -1678,68 +1880,41 @@
     </script>
 
     <script>
-        Highcharts.chart('user-pie', {
-    chart: {
-        type: 'pie',
-        options3d: {
-            enabled: true,
-            alpha: 45
-        }
-    },
-    title: {
-        text: null,
-        align: 'left',
-        style: {
-            fontFamily: 'Montserrat, sans-serif', // Set font to Montserrat
-        }
-    },
-    subtitle: {
-        text: "Attendance Summary for this Month",
-        align: 'center',
-        style: {
-            fontFamily: 'Montserrat, sans-serif', // Set font to Montserrat
-        }
-    },
-    plotOptions: {
-        pie: {
-            innerSize: 100,
-            depth: 45
-        }
-    },
-    series: [{
-        name: 'Number Of Days', // Legend label for the series
-        data: [
-           
-            {
-                name: 'Early Check-in',
-                y: 1
-            },
-            {
-                name: 'On-time Check-in',
-                y: 19
-            },
-             
-            {
-                name: 'Late Checkin',
-                y: 3
-            },
-            {
-                name: 'Absent', // Label title for the data point
-                y: 4, // Data value
-            }
-        ]
-    }],
-    legend: {
-        layout: 'vertical',
-        align: 'right',
-        verticalAlign: 'middle',
-        style: {
-            fontFamily: 'Montserrat, sans-serif', // Set font to Montserrat
-        }
-    }
-});
+        $('.add-checkpoint').on('click', function(){
+          
 
+            var placeName=$('.location-name').text()
+            var locationAddress=$('.location-name').text()
+            var pointType=$('.point-type').val()
+            var tasks=$('.categoryIndex').last().text()
+            $('.intial-row').addClass('d-none')
+           
+            var newContent=
+            `<tr>
+                    <th>`+pointType+`</th>
+                    <td>
+                        <small>
+                            <p class="mb-0 fw-bold text-black">`+placeName+`</p>
+                            <span>`+locationAddress+`</span>
+                        </small>
+                    </td>
+                    <td>`+tasks+`Tasks</td>
+                    <td class="text-right">
+                        <button title="View Item" type="button" class="btn btn-link waves-effect" fdprocessedid="ahck98"><i class="mdi mdi-eye-outline font-size-16 align-middle me-2"></i></button>
+
+                        <button title="Remove Item" type="button" class="btn btn-link waves-effect text-danger" fdprocessedid="g0nk0j"><i class="mdi mdi-close font-size-16 align-middle me-2"></i></button>
+
+                    </td>
+                </tr>
+            `
+
+            $(newContent).appendTo('.selected-addresses').removeClass('d-none');
+
+            // alert($('.selected-addresses tr').length)
+        })
     </script>
+
+  
 </body>
 
 
